@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "ocrmypdf>=16.10.4",
     "pdfplumber>=0.11.7",
     "streamlit>=1.47.1",
     "streamlit-pdf-viewer>=0.0.26",
