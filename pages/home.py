@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
 
-pdf = st.session_state["pdf"] if "pdf" in st.session_state else None
+pdf = st.session_state.get("pdf", None)
 
 if pdf is not None:
     pdf = pdf.getvalue()
