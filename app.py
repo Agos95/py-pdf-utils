@@ -1,4 +1,9 @@
+from io import BytesIO
+
+import pdfplumber
 import streamlit as st
+
+from utils.session_state_keys import PDF_FILE_KEY, UPLOADED_FILE_KEY
 
 st.set_page_config(
     page_title="PDF Utils",
@@ -18,10 +23,14 @@ with st.sidebar:
     pdf = st.file_uploader(
         "Upload PDF",
         type=["pdf"],
-        key="pdf",
+        key=UPLOADED_FILE_KEY,
         label_visibility="collapsed",
         on_change=clear_session_state,
     )
+    if pdf is not None:
+        st.session_state[PDF_FILE_KEY] = pdfplumber.open(BytesIO(pdf.getvalue()))
+
+    st.divider()
 
 pages = [
     st.Page("pages/home.py", title="Home", icon=":material/home:", default=True),

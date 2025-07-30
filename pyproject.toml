@@ -10,3 +10,8 @@ dependencies = [
     "streamlit>=1.47.1",
     "streamlit-pdf-viewer>=0.0.26",
 ]
+
+[dependency-groups]
+ai = [
+    "transformers>=4.54.1",
+]
